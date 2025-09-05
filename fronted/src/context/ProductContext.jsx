@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import API_BASE_URL from "../config";
 
 // 1️⃣ Context create karo
 const ProductContext = createContext();
@@ -28,7 +29,7 @@ export const ProductProvider = ({ children }) => {
   // Fetch all products
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/products/product");
+      const res = await fetch(`${API_BASE_URL}/products/product`);
       const data = await res.json();
       if (Array.isArray(data)) setProducts(data);
       else if (data.products) setProducts(data.products);
@@ -40,9 +41,7 @@ export const ProductProvider = ({ children }) => {
   // Fetch products by category
   const fetchProductsByCategory = async (category) => {
     try {
-      const res = await fetch(
-        `http://localhost:4000/api/products/category/${category}`
-      );
+      const res = await fetch(`${API_BASE_URL}/products/category/${category}`);
       const data = await res.json();
       if (Array.isArray(data)) setProducts(data);
       else if (data.products) setProducts(data.products);
@@ -64,7 +63,7 @@ export const ProductProvider = ({ children }) => {
   // User login
   const loginUser = async (email, password) => {
     try {
-      const res = await fetch("http://localhost:4000/api/auth/login", {
+      const res = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -84,7 +83,7 @@ export const ProductProvider = ({ children }) => {
   // User register
   const registerUser = async (userData) => {
     try {
-      const res = await fetch("http://localhost:4000/api/auth/register", {
+      const res = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
@@ -117,11 +116,11 @@ export const ProductProvider = ({ children }) => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:4000/api/cart/add", {
+      const res = await fetch(`${API_BASE_URL}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "x-auth-token": localStorage.getItem("token"), // ✅ fixed to match backend middleware
         },
         body: JSON.stringify({
           userId: user._id,
@@ -143,10 +142,10 @@ export const ProductProvider = ({ children }) => {
   const fetchCart = async () => {
     if (!user?._id) return;
     try {
-      const res = await fetch(`http://localhost:4000/api/cart/cart/${user._id}`, {
+      const res = await fetch(`${API_BASE_URL}/cart/cart/${user._id}`, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "x-auth-token": localStorage.getItem("token"), // ✅ fixed to match backend middleware
         },
       });
       if (!res.ok) throw new Error("Failed to fetch cart");
