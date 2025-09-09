@@ -10,18 +10,32 @@ const HeroSection = () => {
         alt="Hero Banner"
         className="img-fluid w-100"
         style={{
-          height: "50vh",
+          width: "100%",
+          height: "auto", // Height automatic for mobile
+          maxHeight: "80vh", // Max height for large screens
           objectFit: "cover",
         }}
       />
 
+      <div
+        className="position-absolute top-50 start-50 translate-middle text-center text-white"
+        style={{
+          textShadow: "2px 2px 6px rgba(0,0,0,0.5)",
+          maxWidth: "90%",
+        }}
+      >
+       
+      </div>
+
       <style>
         {`
           @media (min-width: 768px) {
-            img.img-fluid { height: 60vh; }
+            img.img-fluid { max-height: 60vh; }
+            .display-6 { font-size: 2rem; }
           }
           @media (min-width: 1200px) {
-            img.img-fluid { height: 80vh; }
+            img.img-fluid { max-height: 80vh; }
+            .display-6 { font-size: 3rem; }
           }
         `}
       </style>
