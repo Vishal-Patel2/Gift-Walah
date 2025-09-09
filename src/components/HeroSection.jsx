@@ -1,4 +1,5 @@
 import React from "react";
+import Speed from "../pages/Speed";
 
 const HeroSection = () => {
   const banner = "https://www.portronics.com/cdn/shop/files/Corporate_Gifting_Banner_f0af93c0-63ad-417c-99cd-e694fe1cdb7a.png?v=1719557738";
@@ -39,6 +40,7 @@ const HeroSection = () => {
           }
         `}
       </style>
+      <Speed/>
     </div>
   );
 };
