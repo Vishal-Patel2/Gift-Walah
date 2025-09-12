@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link className="navbar-brand d-flex align-items-center fw-bold text-success" to="/">
             <img
-              src="https://giftwalah.com/assets/logo1.png"
+              src="https://giftwalah.com/assets/logo-DmEux5Mw.png"
               alt="Logo"
               style={{
                 height: "70px",
