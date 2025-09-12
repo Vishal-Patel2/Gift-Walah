@@ -4,6 +4,7 @@ import { FaShoppingCart, FaUser, FaHeart, FaSearch } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import HeroSection from "./HeroSection";
+import logo from "../assets/logo-DmEux5Mw.png";
 
 const Navbar = () => {
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -37,7 +38,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link className="navbar-brand d-flex align-items-center fw-bold text-success" to="/">
             <img
-              src="https://giftwalah.com/assets/logo-DmEux5Mw.png"
+               src={logo}
               alt="Logo"
               style={{
                 height: "70px",

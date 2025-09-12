@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo1-Ce2VhKli.png";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
               className="d-flex align-items-center text-decoration-none mb-3"
             >
               <img
-                src="https://giftwalah.com/assets/logo1-Ce2VhKli.png"
+                src={logo}
                 alt="Logo"
                 style={{ height: "90px", width: "auto", marginRight: "10px" }}
               />
