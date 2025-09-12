@@ -13,7 +13,7 @@ const Footer = () => {
               className="d-flex align-items-center text-decoration-none mb-3"
             >
               <img
-                src="https://giftwalah.com/assets/logo1.png"
+                src="https://www.giftwalah.com/assets/logo1.png"
                 alt="Logo"
                 style={{ height: "90px", width: "auto", marginRight: "10px" }}
               />
